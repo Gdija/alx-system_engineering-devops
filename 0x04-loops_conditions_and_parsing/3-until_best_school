@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#script prints a sentence 10 times using until
+x=0
+until [ "$((x+=1))" -gt 10 ]
+do
+echo "Best School"
+done

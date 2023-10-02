@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#display files in list format using for loop
+for FILE in *;
+do
+echo "${FILE:2}";
+done

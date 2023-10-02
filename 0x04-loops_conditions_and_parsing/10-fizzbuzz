@@ -3,13 +3,13 @@
 x=1
 while [ $x -le 100 ]
 do
-if [ $(expr $x % 3) -eq 0 ]&& [ $(expr $x % 5) -eq 0 ]
+if [ "$((x % 3))" -eq 0 ]&& [ "$((x % 5))" -eq 0 ]
 then
 echo "FizzBuzz"
-elif [ $(expr $x % 5) -eq 0 ]
+elif [ "$((x % 5))" -eq 0 ]
 then
 echo "Buzz"
-elif [ $(expr $x % 3) -eq 0 ]
+elif [ "$((x % 3))" -eq 0 ]
 then
 echo "Fizz"
 else

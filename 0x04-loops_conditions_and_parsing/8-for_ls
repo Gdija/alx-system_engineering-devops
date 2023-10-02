@@ -2,5 +2,5 @@
 #display files in list format using for loop
 for FILE in *;
 do
-echo "${FILE:3}";
+echo "$FILE" | cut -d '-' -f 2
 done

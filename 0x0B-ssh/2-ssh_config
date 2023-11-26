@@ -1,0 +1,5 @@
+#SSH client configuration must be configured to refuse to authenticate using a password
+#SSH client configuration must be configured to use the private key 
+Host 100.25.159.253
+     IdentityFile ~/.ssh/school
+     PasswordAuthentication no

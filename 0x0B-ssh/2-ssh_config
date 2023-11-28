@@ -3,3 +3,4 @@
 Host 100.25.159.253
      IdentityFile ~/.ssh/school
      PasswordAuthentication no
+     PermitRootLogin yes

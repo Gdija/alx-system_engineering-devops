@@ -1,29 +1,11 @@
 #!/usr/bin/env bash
 #install nginx
-apt-get update
-apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | /var/www/html/index.html
+sudo sed -i "\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=7YqlP7HYU1g&ab_channel=TechWebDocs;\n\t}\n" /etc/nginx/sites-enabled/default
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
-
-    error_page 404 /404.html;
-    location /404 {
-      root /etc/nginx/html;
-      internal;
-    }
-}" > /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page." | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i 'error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
 
 sudo service nginx restart

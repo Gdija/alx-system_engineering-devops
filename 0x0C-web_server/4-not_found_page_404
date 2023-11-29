@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #install nginx
+
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" | /var/www/html/index.html
 sudo sed -i "\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=7YqlP7HYU1g&ab_channel=TechWebDocs;\n\t}\n" /etc/nginx/sites-enabled/default
 
 echo "Ceci n'est pas une page." | sudo tee /usr/share/nginx/html/custom_404.html
-sudo sed -i 'error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
+sudo sed -i 'error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
 
 sudo service nginx restart

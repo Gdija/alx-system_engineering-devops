@@ -2,6 +2,6 @@
 #configure new server
 sudo apt-get -y update 
 sudo apt-get -y install nginx
-sudo sed -i "\\\tadd_header X-Served-By \$HOSTNAME;" /etc/nginx/nginx.conf
+sudo sed -i "27i\\\tadd_header X-Served-By \$HOSTNAME;" /etc/nginx/nginx.conf
 echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo service nginx restart

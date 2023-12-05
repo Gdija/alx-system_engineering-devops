@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
-# configure the new web server
+#configure new server
 sudo apt-get -y update 
 sudo apt-get -y install nginx
-mkdir /var/www/html
-touch /var/www/html/index.html
-echo "Hello World!" | /var/www/html/index.html
-printf %s "server {
-listen 80 default_server;
-listen [::]:80 default_server;
-add_header X-Served-By $hostname;
-root   /var/www/html;
-index  index.html index.htm;
-}"> /etc/nginx/sites-available/default
+sudo sed -i "27i\\\tadd_header X-Served-By \$HOSTNAME;" /etc/nginx/nginx.conf
+echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo service nginx restart

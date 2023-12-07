@@ -15,8 +15,8 @@ frontend  proxy-frontend
         default_backend proxy-backend
 backend proxy-backend
         balance roundrobin
-        294896-web-01 52.73.254.165:80 check
-        294896-web-02 100.25.23.236:80 check
+        server 294896-web-01 52.73.254.165:80 check
+        server 294896-web-02 100.25.23.236:80 check
 #back up file
 sudo cp -a /etc/haproxy/haproxy.cfg{,.original_copy}
 sudo service haproxy restart

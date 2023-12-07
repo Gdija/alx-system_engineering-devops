@@ -1,10 +1,2 @@
-./0-nginx_likes_port_80: line 3: server: command not found
-./0-nginx_likes_port_80: line 4: listen: command not found
-./0-nginx_likes_port_80: line 5: listen: command not found
-./0-nginx_likes_port_80: line 6: root: command not found
-./0-nginx_likes_port_80: line 8: index: command not found
-./0-nginx_likes_port_80: line 10: server_name: command not found
-./0-nginx_likes_port_80: line 12: location: command not found
-./0-nginx_likes_port_80: line 13: try_files: command not found
-./0-nginx_likes_port_80: line 14: syntax error near unexpected token `}'
-./0-nginx_likes_port_80: line 14: `    }'
+sed: can't read /etc/nginx/nginx.conf: No such file or directory
+nginx: unrecognized service

@@ -35,13 +35,9 @@ defaults
 
 frontend Local_Server 
          bind *:80
+         bind *:443 ssl crt /etc/letsencrypt/live/www.gdija.tech/gdija.tech
          mode http 
          default_backend proxy
-
-frontend Local_Server_secure 
-         bind *:443 ssl crt /etc/letsencrypt/live/www.gdija.tech/gdija.tech 
-         mode http 
-         default_backend proxy 
 
 backend proxy 
          mode http 
